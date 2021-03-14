@@ -1,0 +1,97 @@
+clc;
+clear;
+load('Tobi.mat', 'Tobidata')
+load('Amp.mat', 'Ampdata')
+load('Baseline.mat', 'Baselinedata')
+
+headersTobi=[
+    "measurement time"
+    "simulation time"
+    "Pupil center RIGHT eye_X"
+    "Pupil center RIGHT eye_Y"
+    "Pupil center RIGHT eye_Z"
+    "Pupil center LEFT eye_X"
+    "Pupil center LEFT eye_Y"
+    "Pupil center LEFT eye_Z"
+    "Pupil diameter RIGHT"
+    "Pupil diameter LEFT"
+    "Gaze direction RIGHT eye_X"
+    "Gaze direction RIGHT eye_Y"
+    "Gaze direction RIGHT eye_Z"
+    "Gaze direction LEFT eye_X"
+    "Gaze direction LEFT eye_Y"
+    "Gaze direction LEFT eye_Z"
+    "Gaze position_X"
+    "Gaze position_Y"
+    "Gaze position 3D_X"
+    "Gaze position 3D_Y"
+    "Gaze position 3D_Z"
+    "Gyroscope_X"
+    "Gyroscope_Y"
+    "Gyroscope_Z"
+    "Accelerometer_X"
+    "Accelerometer_Y"
+    "Accelerometer_Z"
+    ];
+headersAmp=[
+    "measurement time"
+    "simulation time"
+    "EEG_1"
+    "EEG_2"
+    "EEG_3"
+    "EEG_4"
+    "EEG_5"
+    "EEG_6"
+    "EEG_7"
+    "EEG_8"
+    "EEG_9"
+    "EEG_10"
+    "EEG_11"
+    "EEG_12"
+    "EEG_13"
+    "EEG_14"
+    "EEG_15"
+    "EEG_16"
+    ];
+headersBaseline=[
+    "measurement time"
+    "EEG_1"
+    "EEG_2"
+    "EEG_3"
+    "EEG_4"
+    "EEG_5"
+    "EEG_6"
+    "EEG_7"
+    "EEG_8"
+    "EEG_9"
+    "EEG_10"
+    "EEG_11"
+    "EEG_12"
+    "EEG_13"
+    "EEG_14"
+    "EEG_15"
+    "EEG_16"
+    ];
+ 
+TOBI=[headersTobi';Tobidata'];
+AMP=[headersAmp';Ampdata'];
+BASE=[headersBaseline';Baselinedata'];
+
+ prompt = 'Name?';
+ foldername = sprintf('%s at %s',input(prompt,'s'),datestr(now,'dd-mm(HH.MM.SS)'));
+ direc = ['C:\Users\orenm\Desktop\CogantaDATA\Results\' foldername '\'];
+ mkdir([ 'C:\Users\orenm\Desktop\CogantaDATA\Results\' foldername '\']);
+ 
+ filename1 = sprintf('Tobii Data of %s.xlsx',foldername);
+ filename2 = sprintf('g.techAmp Data of %s.xlsx',foldername);
+ filename3 = sprintf('Baseline Data of %s.xlsx',foldername);
+ 
+ fullFileName1 = fullfile(direc,filename1);
+ fullFileName2 = fullfile(direc,filename2);
+ fullFileName3 = fullfile(direc,filename3);
+
+ xlswrite(fullFileName1,TOBI)
+ xlswrite(fullFileName2,AMP)
+ xlswrite(fullFileName3,BASE)
+ 
+ 
