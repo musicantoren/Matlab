@@ -1,8 +1,13 @@
+
 clc;
 clear;
 load('Tobi.mat', 'Tobidata')
 load('Amp.mat', 'Ampdata')
 load('Baseline.mat', 'Baselinedata')
+
+ %------------------------------------------------------
+Participant_ID='A3_00201'; % Plugin the user ID.
+ %------------------------------------------------------
 
 headersTobi=[
     "measurement time"
@@ -77,8 +82,32 @@ TOBI=[headersTobi';Tobidata'];
 AMP=[headersAmp';Ampdata'];
 BASE=[headersBaseline';Baselinedata'];
 
- prompt = 'Name?';
- foldername = sprintf('%s at %s',input(prompt,'s'),datestr(now,'dd-mm(HH.MM.SS)'));
+fprintf('Please use one of the following names for saving the data:\n');
+fprintf('----------------------------------\n');
+fprintf('For Training: %s_TRAINING \n',Participant_ID);
+fprintf('----------------------------------\n');
+fprintf('For ACC scenario:\n');
+fprintf('                 %s_TTC 1 LOAD 1\n',Participant_ID);
+fprintf('                 %s_00201_TTC 1 LOAD 2\n',Participant_ID);
+fprintf('                 %s_00201_TTC 2 LOAD 1\n',Participant_ID);
+fprintf('                 %s_00201_TTC 2 LOAD 2\n',Participant_ID);
+fprintf('                 %s_00201_TTC 3 LOAD 1\n',Participant_ID);
+fprintf('                 %s_00201_TTC 3 LOAD 2\n',Participant_ID);
+fprintf('----------------------------------\n');
+fprintf('For Latency scenario - Here are some examples: the delay number can change\n');
+fprintf('                 %s_segment1 delay 1\n',Participant_ID);
+fprintf('                 %s_segment2 delay 2\n',Participant_ID);
+fprintf('                 %s_segment3 delay 3\n',Participant_ID);
+fprintf('----------------------------------\n');
+fprintf('For Spacial scenario:\n');
+fprintf('                 %s_ALLOCENTIC\n',Participant_ID);
+fprintf('                 %s_ALLOCENTIC\n',Participant_ID);
+
+prompt = 'Enter participant and scenario name (copy from above) make sure that they are currect:';
+foldername = sprintf('%s at %s',input(prompt,'s'),datestr(now,'dd-mm(HH.MM.SS)'));
+
+fprintf('*DONT FORGET FILL THE QUESTIONAIRE*');
+
  direc = ['C:\Users\orenm\Desktop\CogantaDATA\Results\' foldername '\'];
  mkdir([ 'C:\Users\orenm\Desktop\CogantaDATA\Results\' foldername '\']);
  
