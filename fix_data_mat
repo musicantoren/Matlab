@@ -1,10 +1,10 @@
 
+
 clc;
 clear;
 load('Tobi.mat', 'Tobidata')
 load('Amp.mat', 'Ampdata')
 load('Baseline.mat', 'Baselinedata')
-
  %------------------------------------------------------
 Participant_ID='A3_00201'; % Plugin the user ID.
  %------------------------------------------------------
@@ -100,8 +100,8 @@ fprintf('                 %s_segment2 delay 2\n',Participant_ID);
 fprintf('                 %s_segment3 delay 3\n',Participant_ID);
 fprintf('----------------------------------\n');
 fprintf('For Spacial scenario:\n');
-fprintf('                 %s_ALLOCENTIC\n',Participant_ID);
-fprintf('                 %s_ALLOCENTIC\n',Participant_ID);
+fprintf('                 %s_ALLOCENTRIC\n',Participant_ID);
+fprintf('                 %s EGOCENTRIC\n',Participant_ID);
 
 prompt = 'Enter participant and scenario name (copy from above) make sure that they are currect:';
 foldername = sprintf('%s at %s',input(prompt,'s'),datestr(now,'dd-mm(HH.MM.SS)'));
@@ -122,5 +122,8 @@ fprintf('*DONT FORGET FILL THE QUESTIONAIRE*');
  xlswrite(fullFileName1,TOBI)
  xlswrite(fullFileName2,AMP)
  xlswrite(fullFileName3,BASE)
+ 
+ 
+
  
  
