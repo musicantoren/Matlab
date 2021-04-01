@@ -1,5 +1,4 @@
 
-
 clc;
 clear;
 load('Tobi.mat', 'Tobidata')
@@ -83,30 +82,29 @@ AMP=[headersAmp';Ampdata'];
 BASE=[headersBaseline';Baselinedata'];
 
 fprintf('Please use one of the following names for saving the data:\n');
-fprintf('----------------------------------\n');
+fprintf('----------------------------------------------\n');
 fprintf('For Training: %s_TRAINING \n',Participant_ID);
-fprintf('----------------------------------\n');
+fprintf('----------------------------------------------\n');
 fprintf('For ACC scenario:\n');
-fprintf('                 %s_TTC 1 LOAD 1\n',Participant_ID);
-fprintf('                 %s_00201_TTC 1 LOAD 2\n',Participant_ID);
-fprintf('                 %s_00201_TTC 2 LOAD 1\n',Participant_ID);
-fprintf('                 %s_00201_TTC 2 LOAD 2\n',Participant_ID);
-fprintf('                 %s_00201_TTC 3 LOAD 1\n',Participant_ID);
-fprintf('                 %s_00201_TTC 3 LOAD 2\n',Participant_ID);
-fprintf('----------------------------------\n');
+fprintf('                 %s_LOAD 1 TTC 1\n',Participant_ID);
+fprintf('                 %s_LOAD 1 TTC 2\n',Participant_ID);
+fprintf('                 %s_LOAD 2 TTC 1\n',Participant_ID);
+fprintf('                 %s_LOAD 2 TTC 2\n',Participant_ID);
+fprintf('                 %s_LOAD 3 TTC 1\n',Participant_ID);
+fprintf('                 %s_LOAD 3 TTC 2\n',Participant_ID);
+fprintf('--------------------------------------------------------\n');
 fprintf('For Latency scenario - Here are some examples: the delay number can change\n');
 fprintf('                 %s_segment1 delay 1\n',Participant_ID);
 fprintf('                 %s_segment2 delay 2\n',Participant_ID);
 fprintf('                 %s_segment3 delay 3\n',Participant_ID);
-fprintf('----------------------------------\n');
+fprintf('--------------------------------------------------------\n');
 fprintf('For Spacial scenario:\n');
 fprintf('                 %s_ALLOCENTRIC\n',Participant_ID);
 fprintf('                 %s EGOCENTRIC\n',Participant_ID);
+fprintf('--------------------------------------------------------\n');
 
 prompt = 'Enter participant and scenario name (copy from above) make sure that they are currect:';
 foldername = sprintf('%s at %s',input(prompt,'s'),datestr(now,'dd-mm(HH.MM.SS)'));
-
-fprintf('*DONT FORGET FILL THE QUESTIONAIRE*');
 
  direc = ['C:\Users\orenm\Desktop\CogantaDATA\Results\' foldername '\'];
  mkdir([ 'C:\Users\orenm\Desktop\CogantaDATA\Results\' foldername '\']);
@@ -123,7 +121,5 @@ fprintf('*DONT FORGET FILL THE QUESTIONAIRE*');
  xlswrite(fullFileName2,AMP)
  xlswrite(fullFileName3,BASE)
  
- 
+ fprintf('DATA SAVED');
 
- 
- 
