@@ -7,6 +7,8 @@ load('Baseline.mat', 'Baselinedata')
  %------------------------------------------------------
 Participant_ID='A3_00201'; % Plugin the user ID.
  %------------------------------------------------------
+ 
+Participant_ID = strip(Participant_ID)
 
 headersTobi=[
     "measurement time"
